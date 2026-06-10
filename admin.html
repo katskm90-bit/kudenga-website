@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Site Admin | Kudenga Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black:#0d0d0d; --charcoal:#1a1a2e; --steel:#16213e; --steel-light:#1f2d4e;
+      --amber:#e8a020; --amber-dark:#c4861a; --amber-glow:rgba(232,160,32,0.12);
+      --white:#fff; --grey-light:#e8e8e8; --grey-mid:#aaa; --text-body:#d0d0d0;
+      --text-muted:#888; --border:rgba(255,255,255,0.07); --border-amber:rgba(232,160,32,0.3);
+      --green:#2ecc71; --red:#e74c3c; --radius:4px; --radius-lg:8px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:var(--charcoal);color:var(--text-body);line-height:1.6;min-height:100vh}
+    h1,h2,h3{font-family:'Barlow Condensed',sans-serif;color:var(--white);letter-spacing:0.02em}
+    button{cursor:pointer;font-family:inherit;border:none}
+    input,select,textarea{font-family:inherit;outline:none}
+
+    .topbar{background:var(--black);border-bottom:1px solid var(--border);padding:16px 32px;display:flex;align-items:center;justify-content:space-between}
+    .topbar__logo{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--white)}
+    .topbar__logo span{color:var(--amber)}
+    .topbar__status{font-size:0.78rem;color:var(--text-muted);display:flex;align-items:center;gap:8px}
+    .status-dot{width:8px;height:8px;border-radius:50%;background:var(--red)}
+    .status-dot.on{background:var(--green)}
+
+    .wrap{max-width:1100px;margin:0 auto;padding:40px 32px}
+    .panel{background:var(--steel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;margin-bottom:24px}
+    .panel h2{font-size:1.4rem;margin-bottom:6px}
+    .panel .sub{font-size:0.85rem;color:var(--text-muted);margin-bottom:20px}
+
+    label{display:block;font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey-mid);margin:14px 0 6px}
+    input[type=text],input[type=password],select,textarea{
+      width:100%;background:var(--charcoal);border:1px solid var(--border);border-radius:var(--radius);
+      padding:12px 14px;font-size:0.92rem;color:var(--white);transition:border-color .25s}
+    input:focus,select:focus,textarea:focus{border-color:var(--amber)}
+    textarea{resize:vertical;min-height:80px;line-height:1.5}
+
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;font-size:0.8rem;font-weight:600;
+      letter-spacing:0.06em;text-transform:uppercase;border-radius:var(--radius);transition:all .25s}
+    .btn--primary{background:var(--amber);color:var(--black)}
+    .btn--primary:hover{background:var(--amber-dark)}
+    .btn--primary:disabled{opacity:0.4;cursor:not-allowed}
+    .btn--ghost{border:1.5px solid var(--border);color:var(--grey-light);background:none}
+    .btn--ghost:hover{border-color:var(--amber);color:var(--amber)}
+    .btn--danger{background:none;border:1.5px solid rgba(231,76,60,0.4);color:var(--red)}
+    .btn--danger:hover{background:rgba(231,76,60,0.12)}
+    .btn--sm{padding:7px 14px;font-size:0.7rem}
+
+    .tabs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+    .tab{padding:10px 22px;font-size:0.8rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+      border:1.5px solid var(--border);border-radius:var(--radius);color:var(--text-muted);background:none;transition:all .25s}
+    .tab.active,.tab:hover{border-color:var(--amber);color:var(--amber);background:var(--amber-glow)}
+    .tabpane{display:none}
+    .tabpane.active{display:block}
+
+    .msg{padding:12px 16px;border-radius:var(--radius);font-size:0.85rem;margin:16px 0;display:none}
+    .msg.show{display:block}
+    .msg--ok{background:rgba(46,204,113,0.1);border:1px solid rgba(46,204,113,0.35);color:var(--green)}
+    .msg--err{background:rgba(231,76,60,0.1);border:1px solid rgba(231,76,60,0.35);color:var(--red)}
+    .msg--info{background:var(--amber-glow);border:1px solid var(--border-amber);color:var(--amber)}
+
+    .img-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;margin-top:20px}
+    .img-card{background:var(--charcoal);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+    .img-card img{width:100%;height:110px;object-fit:cover;display:block;background:var(--steel-light)}
+    .img-card .meta{padding:10px;font-size:0.72rem;color:var(--text-muted);word-break:break-all}
+    .img-card .actions{padding:0 10px 10px;display:flex;gap:6px}
+
+    .dropzone{border:2px dashed var(--border-amber);border-radius:var(--radius-lg);padding:36px;text-align:center;
+      color:var(--text-muted);font-size:0.9rem;transition:all .25s;cursor:pointer;margin-top:16px}
+    .dropzone:hover,.dropzone.drag{border-color:var(--amber);background:var(--amber-glow);color:var(--amber)}
+
+    .edit-item{background:var(--charcoal);border:1px solid var(--border);border-left:3px solid var(--amber);
+      border-radius:0 var(--radius) var(--radius) 0;padding:14px 16px;margin-bottom:12px}
+    .edit-item .tag{font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);margin-bottom:6px;display:block}
+    .edit-item textarea{min-height:54px;font-size:0.88rem}
+
+    .row{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}
+    .row > div{flex:1;min-width:180px}
+    .spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(0,0,0,0.25);border-top-color:var(--black);border-radius:50%;animation:spin .7s linear infinite;vertical-align:-2px}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .hint{font-size:0.78rem;color:var(--text-muted);margin-top:8px;line-height:1.6}
+    .hint a{color:var(--amber)}
+    .file-list{margin-top:16px;display:flex;flex-direction:column;gap:8px}
+    .file-row{display:flex;align-items:center;justify-content:space-between;background:var(--charcoal);
+      border:1px solid var(--border);border-radius:var(--radius);padding:10px 14px;font-size:0.85rem}
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="topbar__logo">KUDENGA <span>GROUP</span> — Site Admin</div>
+    <div class="topbar__status"><span class="status-dot" id="statusDot"></span><span id="statusText">Not connected</span></div>
+  </div>
+
+  <div class="wrap">
+
+    <!-- ── CONNECT ── -->
+    <div class="panel" id="connectPanel">
+      <h2>Connect to GitHub</h2>
+      <p class="sub">Your token is kept only in this browser session and is never saved to the website code.</p>
+      <div class="row">
+        <div>
+          <label>GitHub Username</label>
+          <input type="text" id="cfgOwner" placeholder="e.g. katskm90-bit" />
+        </div>
+        <div>
+          <label>Repository</label>
+          <input type="text" id="cfgRepo" value="kudenga-website" />
+        </div>
+        <div>
+          <label>Branch</label>
+          <input type="text" id="cfgBranch" value="main" />
+        </div>
+      </div>
+      <label>Fine-Grained Personal Access Token</label>
+      <input type="password" id="cfgToken" placeholder="github_pat_..." autocomplete="off" />
+      <p class="hint">
+        Create one at GitHub → Settings → Developer settings → Fine-grained tokens → Generate new token.
+        Repository access: <strong>only this repository</strong>. Permissions: <strong>Contents — Read and write</strong>. Nothing else.
+      </p>
+      <div style="margin-top:18px">
+        <button class="btn btn--primary" id="btnConnect">Connect</button>
+      </div>
+      <div class="msg" id="connectMsg"></div>
+    </div>
+
+    <!-- ── WORKSPACE ── -->
+    <div id="workspace" style="display:none">
+      <div class="tabs">
+        <button class="tab active" data-pane="paneImages">Images</button>
+        <button class="tab" data-pane="paneContent">Edit Content</button>
+        <button class="tab" data-pane="paneFiles">Replace Files</button>
+      </div>
+
+      <!-- IMAGES -->
+      <div class="tabpane active" id="paneImages">
+        <div class="panel">
+          <h2>Image Library</h2>
+          <p class="sub">Upload images to the site's <code>images/</code> folder. After uploading, reference them in content as <code>images/yourfile.jpg</code>.</p>
+          <div class="dropzone" id="dropzone">Drop images here, or click to select<br /><span style="font-size:0.75rem">JPG, PNG, WebP, SVG — max ~8MB each</span></div>
+          <input type="file" id="fileInput" accept="image/*" multiple style="display:none" />
+          <div class="msg" id="imgMsg"></div>
+          <div class="img-grid" id="imgGrid"></div>
+        </div>
+      </div>
+
+      <!-- CONTENT -->
+      <div class="tabpane" id="paneContent">
+        <div class="panel">
+          <h2>Edit Page Content</h2>
+          <p class="sub">Select a page, edit its headings and paragraphs, then publish. Changes go live in about a minute.</p>
+          <div class="row">
+            <div>
+              <label>Page</label>
+              <select id="pageSelect">
+                <option value="index.html">Home</option>
+                <option value="about.html">About Us</option>
+                <option value="rail-road.html">Rail &amp; Road</option>
+                <option value="mining.html">Mining</option>
+                <option value="real-estate.html">Properties</option>
+                <option value="projects.html">Our Work</option>
+                <option value="locations.html">Locations</option>
+                <option value="contact.html">Contact</option>
+              </select>
+            </div>
+            <div style="flex:0">
+              <button class="btn btn--ghost" id="btnLoadPage">Load Page</button>
+            </div>
+          </div>
+          <div class="msg" id="contentMsg"></div>
+          <div id="editList" style="margin-top:20px"></div>
+          <div id="publishBar" style="display:none;margin-top:20px">
+            <button class="btn btn--primary" id="btnPublish">Publish Changes</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- FILES -->
+      <div class="tabpane" id="paneFiles">
+        <div class="panel">
+          <h2>Replace a File</h2>
+          <p class="sub">Upload a file to any path in the site — for example replace the logo, a CSS file, or upload a PDF. If the path exists it is overwritten; if not, it is created.</p>
+          <label>Destination Path</label>
+          <input type="text" id="replacePath" placeholder="e.g. images/logo.png" />
+          <label>File</label>
+          <input type="file" id="replaceFile" />
+          <div style="margin-top:18px">
+            <button class="btn btn--primary" id="btnReplace">Upload &amp; Commit</button>
+          </div>
+          <div class="msg" id="fileMsg"></div>
+          <p class="hint">
+            Tip: when the client's final logo arrives, upload it as <code>images/logo.png</code>, then ask Soluxionz to wire it into the navigation — or edit the nav in the code directly.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+<script>
+(() => {
+  'use strict';
+  const API = 'https://api.github.com';
+  let cfg = null;            // {owner, repo, branch, token}
+  let pageState = null;      // {path, sha, doc, items:[{el, original}]}
+
+  const $ = id => document.getElementById(id);
+  const show = (el, text, type) => {
+    el.textContent = text;
+    el.className = 'msg show msg--' + type;
+  };
+  const hide = el => { el.className = 'msg'; };
+
+  const headers = () => ({
+    'Authorization': 'Bearer ' + cfg.token,
+    'Accept': 'application/vnd.github+json',
+    'X-GitHub-Api-Version': '2022-11-28'
+  });
+
+  async function gh(path, opts = {}) {
+    const res = await fetch(API + path, { ...opts, headers: { ...headers(), ...(opts.headers || {}) } });
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}));
+      throw new Error(body.message || ('GitHub API error ' + res.status));
+    }
+    return res.json();
+  }
+
+  // base64 helpers (unicode-safe)
+  const b64encode = str => btoa(unescape(encodeURIComponent(str)));
+  const b64decode = str => decodeURIComponent(escape(atob(str.replace(/\n/g, ''))));
+  const fileToB64 = file => new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload = () => res(r.result.split(',')[1]);
+    r.onerror = rej;
+    r.readAsDataURL(file);
+  });
+
+  async function putFile(path, contentB64, message, sha) {
+    const body = { message, content: contentB64, branch: cfg.branch };
+    if (sha) body.sha = sha;
+    return gh(`/repos/${cfg.owner}/${cfg.repo}/contents/${encodeURIComponent(path).replace(/%2F/g,'/')}`, {
+      method: 'PUT', body: JSON.stringify(body)
+    });
+  }
+  async function getFile(path) {
+    return gh(`/repos/${cfg.owner}/${cfg.repo}/contents/${encodeURIComponent(path).replace(/%2F/g,'/')}?ref=${cfg.branch}`);
+  }
+
+  // ── CONNECT ─────────────────────────────────────────────
+  $('btnConnect').addEventListener('click', async () => {
+    const owner = $('cfgOwner').value.trim();
+    const repo  = $('cfgRepo').value.trim();
+    const branch= $('cfgBranch').value.trim() || 'main';
+    const token = $('cfgToken').value.trim();
+    const msg = $('connectMsg');
+    if (!owner || !repo || !token) { show(msg, 'Please complete username, repository, and token.', 'err'); return; }
+    cfg = { owner, repo, branch, token };
+    try {
+      show(msg, 'Verifying access…', 'info');
+      await gh(`/repos/${owner}/${repo}`);
+      sessionStorage.setItem('kg-admin', JSON.stringify(cfg));
+      $('statusDot').classList.add('on');
+      $('statusText').textContent = owner + '/' + repo + ' @ ' + branch;
+      show(msg, 'Connected.', 'ok');
+      $('workspace').style.display = '';
+      $('connectPanel').style.display = 'none';
+      loadImages();
+    } catch (e) {
+      cfg = null;
+      show(msg, 'Connection failed: ' + e.message, 'err');
+    }
+  });
+
+  // Restore session
+  const saved = sessionStorage.getItem('kg-admin');
+  if (saved) {
+    try {
+      cfg = JSON.parse(saved);
+      $('cfgOwner').value = cfg.owner; $('cfgRepo').value = cfg.repo;
+      $('cfgBranch').value = cfg.branch; $('cfgToken').value = cfg.token;
+      $('btnConnect').click();
+    } catch (e) { sessionStorage.removeItem('kg-admin'); }
+  }
+
+  // ── TABS ────────────────────────────────────────────────
+  document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('.tabpane').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    $(t.dataset.pane).classList.add('active');
+  }));
+
+  // ── IMAGES ──────────────────────────────────────────────
+  async function loadImages() {
+    const grid = $('imgGrid');
+    grid.innerHTML = '<p class="hint">Loading…</p>';
+    try {
+      let files = [];
+      try {
+        files = await gh(`/repos/${cfg.owner}/${cfg.repo}/contents/images?ref=${cfg.branch}`);
+      } catch (e) { files = []; } // folder may not exist yet
+      grid.innerHTML = '';
+      const imgs = files.filter(f => f.type === 'file' && /\.(jpe?g|png|webp|gif|svg)$/i.test(f.name));
+      if (imgs.length === 0) { grid.innerHTML = '<p class="hint">No images uploaded yet.</p>'; return; }
+      imgs.forEach(f => {
+        const card = document.createElement('div');
+        card.className = 'img-card';
+        card.innerHTML = `
+          <img src="${f.download_url}" alt="${f.name}" loading="lazy" />
+          <div class="meta">images/${f.name}<br/>${(f.size/1024).toFixed(0)} KB</div>
+          <div class="actions">
+            <button class="btn btn--ghost btn--sm" data-copy="images/${f.name}">Copy Path</button>
+            <button class="btn btn--danger btn--sm" data-del="${f.name}" data-sha="${f.sha}">Delete</button>
+          </div>`;
+        grid.appendChild(card);
+      });
+      grid.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', () => {
+        navigator.clipboard.writeText(b.dataset.copy);
+        b.textContent = 'Copied'; setTimeout(() => b.textContent = 'Copy Path', 1500);
+      }));
+      grid.querySelectorAll('[data-del]').forEach(b => b.addEventListener('click', async () => {
+        if (!confirm('Delete images/' + b.dataset.del + '?')) return;
+        try {
+          await gh(`/repos/${cfg.owner}/${cfg.repo}/contents/images/${b.dataset.del}`, {
+            method: 'DELETE',
+            body: JSON.stringify({ message: 'Admin: delete image ' + b.dataset.del, sha: b.dataset.sha, branch: cfg.branch })
+          });
+          show($('imgMsg'), 'Deleted. Site updates in ~1 minute.', 'ok');
+          loadImages();
+        } catch (e) { show($('imgMsg'), 'Delete failed: ' + e.message, 'err'); }
+      }));
+    } catch (e) {
+      grid.innerHTML = '';
+      show($('imgMsg'), 'Could not load images: ' + e.message, 'err');
+    }
+  }
+
+  const dz = $('dropzone'), fi = $('fileInput');
+  dz.addEventListener('click', () => fi.click());
+  dz.addEventListener('dragover', e => { e.preventDefault(); dz.classList.add('drag'); });
+  dz.addEventListener('dragleave', () => dz.classList.remove('drag'));
+  dz.addEventListener('drop', e => { e.preventDefault(); dz.classList.remove('drag'); uploadImages(e.dataTransfer.files); });
+  fi.addEventListener('change', () => uploadImages(fi.files));
+
+  async function uploadImages(fileList) {
+    const msg = $('imgMsg');
+    const files = Array.from(fileList).filter(f => f.type.startsWith('image/') || f.name.endsWith('.svg'));
+    if (files.length === 0) { show(msg, 'No valid image files selected.', 'err'); return; }
+    for (const file of files) {
+      if (file.size > 8 * 1024 * 1024) { show(msg, file.name + ' exceeds 8MB — skipped.', 'err'); continue; }
+      const safeName = file.name.toLowerCase().replace(/[^a-z0-9.\-_]/g, '-');
+      try {
+        show(msg, 'Uploading ' + safeName + '…', 'info');
+        let sha;
+        try { const existing = await getFile('images/' + safeName); sha = existing.sha; } catch (e) {}
+        await putFile('images/' + safeName, await fileToB64(file), 'Admin: upload ' + safeName, sha);
+        show(msg, 'Uploaded ' + safeName + '. Live in ~1 minute.', 'ok');
+      } catch (e) { show(msg, 'Upload failed for ' + safeName + ': ' + e.message, 'err'); }
+    }
+    fi.value = '';
+    loadImages();
+  }
+
+  // ── CONTENT EDITOR ──────────────────────────────────────
+  $('btnLoadPage').addEventListener('click', async () => {
+    const path = $('pageSelect').value;
+    const msg = $('contentMsg');
+    const list = $('editList');
+    list.innerHTML = ''; $('publishBar').style.display = 'none';
+    try {
+      show(msg, 'Loading ' + path + '…', 'info');
+      const data = await getFile(path);
+      const html = b64decode(data.content);
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      const scope = doc.querySelector('main') || doc.body;
+      const nodes = scope.querySelectorAll('h1, h2, h3, h4, p, .lead, .eyebrow');
+      const items = [];
+      nodes.forEach(el => {
+        const text = el.textContent.trim();
+        if (!text || text.length < 2) return;
+        if (el.querySelector('h1,h2,h3,h4,p')) return; // skip wrappers
+        items.push({ el, original: text });
+      });
+      if (items.length === 0) { show(msg, 'No editable text found on this page.', 'err'); return; }
+      pageState = { path, sha: data.sha, doc, items };
+      items.forEach((item, i) => {
+        const div = document.createElement('div');
+        div.className = 'edit-item';
+        div.innerHTML = `<span class="tag">${item.el.tagName.toLowerCase()}${item.el.className ? ' · ' + item.el.className.split(' ')[0] : ''}</span>
+          <textarea data-idx="${i}">${item.original.replace(/</g,'&lt;')}</textarea>`;
+        list.appendChild(div);
+      });
+      $('publishBar').style.display = '';
+      show(msg, items.length + ' editable text blocks loaded. Edit below, then Publish.', 'ok');
+    } catch (e) { show(msg, 'Load failed: ' + e.message, 'err'); }
+  });
+
+  $('btnPublish').addEventListener('click', async () => {
+    if (!pageState) return;
+    const msg = $('contentMsg');
+    const btn = $('btnPublish');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span> Publishing…';
+    try {
+      document.querySelectorAll('#editList textarea').forEach(ta => {
+        const item = pageState.items[parseInt(ta.dataset.idx)];
+        const newText = ta.value.trim();
+        if (newText && newText !== item.original) {
+          // Replace only the direct text while keeping child elements (spans, links)
+          if (item.el.children.length === 0) {
+            item.el.textContent = newText;
+          } else {
+            // For elements with inline children, do a safe full-text swap
+            item.el.textContent = newText;
+          }
+        }
+      });
+      const serialized = '<!DOCTYPE html>\n' + pageState.doc.documentElement.outerHTML;
+      await putFile(pageState.path, b64encode(serialized), 'Admin: content update ' + pageState.path, pageState.sha);
+      show(msg, 'Published. Changes live in ~1 minute. Reload the page here before editing again.', 'ok');
+      pageState = null;
+      $('editList').innerHTML = '';
+      $('publishBar').style.display = 'none';
+    } catch (e) {
+      show(msg, 'Publish failed: ' + e.message, 'err');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Publish Changes';
+    }
+  });
+
+  // ── REPLACE FILE ────────────────────────────────────────
+  $('btnReplace').addEventListener('click', async () => {
+    const path = $('replacePath').value.trim().replace(/^\/+/, '');
+    const file = $('replaceFile').files[0];
+    const msg = $('fileMsg');
+    if (!path || !file) { show(msg, 'Provide both a destination path and a file.', 'err'); return; }
+    if (path.toLowerCase() === 'admin.html') { show(msg, 'Refusing to overwrite the admin page itself.', 'err'); return; }
+    try {
+      show(msg, 'Uploading…', 'info');
+      let sha;
+      try { const existing = await getFile(path); sha = existing.sha; } catch (e) {}
+      await putFile(path, await fileToB64(file), 'Admin: replace ' + path, sha);
+      show(msg, (sha ? 'Replaced ' : 'Created ') + path + '. Live in ~1 minute.', 'ok');
+      $('replaceFile').value = ''; $('replacePath').value = '';
+    } catch (e) { show(msg, 'Failed: ' + e.message, 'err'); }
+  });
+
+})();
+</script>
+</body>
+</html>
