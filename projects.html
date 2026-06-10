@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kudenga Group project track record — rail, road, mining and real estate projects delivered across Southern Africa." />
+  <title>Our Work | Kudenga Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%231a1a2e'/><text y='24' x='4' font-size='22' fill='%23e8a020' font-family='Arial' font-weight='bold'>K</text></svg>" />
+  <style>
+    .filter-bar { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:48px; }
+    .filter-btn { padding:10px 20px; font-size:0.78rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; border:1.5px solid var(--border); border-radius:var(--radius); color:var(--text-muted); background:none; cursor:pointer; transition:all var(--transition); font-family:var(--font-body); }
+    .filter-btn.active, .filter-btn:hover { border-color:var(--amber); color:var(--amber); background:var(--amber-glow); }
+    .projects-full-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+    @media(max-width:768px){ .projects-full-grid{ grid-template-columns:1fr; } }
+    @media(max-width:1024px){ .projects-full-grid{ grid-template-columns:repeat(2,1fr); } }
+    .project-detail { background:var(--steel-light); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; transition:transform var(--transition),box-shadow var(--transition),border-color var(--transition); }
+    .project-detail:hover { transform:translateY(-6px); box-shadow:var(--shadow); border-color:var(--border-amber); }
+    .project-detail__header { padding:28px 28px 0; }
+    .project-detail__sector { font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--amber); margin-bottom:8px; display:block; }
+    .project-detail__header h3 { font-size:1.2rem; color:var(--white); margin-bottom:12px; }
+    .project-detail__body { padding:0 28px 28px; }
+    .project-detail__body p { font-size:0.9rem; color:var(--text-muted); line-height:1.7; margin-top:12px; }
+    .project-detail__meta { display:flex; gap:8px; flex-wrap:wrap; margin-top:20px; padding-top:20px; border-top:1px solid var(--border); }
+    .project-detail__tag { font-size:0.7rem; font-weight:500; color:var(--amber); background:var(--amber-glow); padding:4px 10px; border-radius:2px; border:1px solid var(--border-amber); }
+    .project-detail__img { height:180px; background:linear-gradient(135deg,#16213e,#0d1b2a); display:flex; align-items:center; justify-content:center; font-size:2.2rem; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" role="navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <span class="nav__logo-name">KUDENGA <span>GROUP</span></span>
+        <span class="nav__logo-tag">Southern Africa</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="rail-road.html">Rail &amp; Road</a></li>
+        <li><a href="mining.html">Mining</a></li>
+        <li><a href="real-estate.html">Properties</a></li>
+        <li><a href="projects.html">Our Work</a></li>
+        <li><a href="locations.html">Locations</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn--primary nav__cta">Get In Touch</a>
+      <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="nav__mobile" role="dialog">
+    <a href="index.html">Home</a><a href="about.html">About Us</a><a href="rail-road.html">Rail &amp; Road Logistics</a>
+    <a href="mining.html">Mining &amp; Consulting</a><a href="real-estate.html">Properties</a>
+    <a href="projects.html">Our Work</a><a href="locations.html">Locations</a>
+    <a href="contact.html" class="btn btn--primary">Get In Touch</a>
+  </div>
+
+  <main id="main">
+
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="container">
+        <span class="eyebrow">Track Record</span>
+        <h1 id="page-title">Our Work</h1>
+        <span class="accent-line"></span>
+        <p class="lead">Projects and engagements delivered across rail, road, mining, and real estate. Each entry below represents a commitment honoured and an outcome delivered.</p>
+      </div>
+    </section>
+
+    <section class="section section--dark" aria-labelledby="projects-list">
+      <div class="container">
+        <div class="filter-bar" role="group" aria-label="Filter projects">
+          <button class="filter-btn active">All Sectors</button>
+          <button class="filter-btn">Rail &amp; Road</button>
+          <button class="filter-btn">Mining</button>
+          <button class="filter-btn">Real Estate</button>
+          <button class="filter-btn">South Africa</button>
+          <button class="filter-btn">Zimbabwe</button>
+        </div>
+
+        <h2 id="projects-list" class="sr-only">Project List</h2>
+
+        <div class="projects-full-grid">
+
+          <div class="project-detail fade-up">
+            <div class="project-detail__img" style="background:linear-gradient(135deg,#0a1628,#1a3a5c);" aria-hidden="true">🚂</div>
+            <div class="project-detail__header">
+              <span class="project-detail__sector">Rail &amp; Road Logistics</span>
+              <h3>Cross-Border Bulk Freight Corridor</h3>
+            </div>
+            <div class="project-detail__body">
+              <p>Management of a regular bulk freight corridor between South Africa and Zimbabwe for a mining client. Scope included rail scheduling, road feeder coordination, customs documentation, and transit management across the border.</p>
+              <p>The engagement ran over an extended period, with Kudenga Group serving as the primary logistics coordinator for inbound and outbound freight on the corridor.</p>
+              <div class="project-detail__meta">
+                <span class="project-detail__tag">Rail</span>
+                <span class="project-detail__tag">Cross-Border</span>
+                <span class="project-detail__tag">SA &amp; Zimbabwe</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-detail fade-up">
+            <div class="project-detail__img" style="background:linear-gradient(135deg,#0a1628,#1a3a5c);" aria-hidden="true">🚛</div>
+            <div class="project-detail__header">
+              <span class="project-detail__sector">Rail &amp; Road Logistics</span>
+              <h3>Road Freight Distribution Network</h3>
+            </div>
+            <div class="project-detail__body">
+              <p>Establishment and operation of a road freight distribution network for an agricultural client requiring regular scheduled deliveries between production facilities and distribution points across the region.</p>
+              <div class="project-detail__meta">
+                <span class="project-detail__tag">Road Freight</span>
+                <span class="project-detail__tag">South Africa</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-detail fade-up">
+            <div class="project-detail__img" style="background:linear-gradient(135deg,#1a1000,#3d2800);" aria-hidden="true">⛏️</div>
+            <div class="project-detail__header">
+              <span class="project-detail__sector">Mining</span>
+              <h3>Mining Operations Consultancy</h3>
+            </div>
+            <div class="project-detail__body">
+              <p>Operational consulting engagement for a mining client in Zimbabwe. Scope covered production planning, safety compliance review, and logistics integration with the client's existing transport arrangements.</p>
+              <div class="project-detail__meta">
+                <span class="project-detail__tag">Consulting</span>
+                <span class="project-detail__tag">Zimbabwe</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-detail fade-up">
+            <div class="project-detail__img" style="background:linear-gradient(135deg,#1a1000,#3d2800);" aria-hidden="true">⛏️</div>
+            <div class="project-detail__header">
+              <span class="project-detail__sector">Mining</span>
+              <h3>On-Site Operational Support Deployment</h3>
+            </div>
+            <div class="project-detail__body">
+              <p>Embedded operational support provided to a mining client during a production ramp-up phase. Kudenga Group deployed experienced personnel on site to support day-to-day operations over an agreed period.</p>
+              <div class="project-detail__meta">
+                <span class="project-detail__tag">Operations</span>
+                <span class="project-detail__tag">South Africa</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-detail fade-up">
+            <div class="project-detail__img" style="background:linear-gradient(135deg,#0a1a0a,#1a3d1a);" aria-hidden="true">🏨</div>
+            <div class="project-detail__header">
+              <span class="project-detail__sector">Real Estate</span>
+              <h3>Hotel Development &amp; Commissioning</h3>
+            </div>
+            <div class="project-detail__body">
+              <p>Development and commissioning of a hotel property in South Africa. Project covered construction oversight, interior fit-out, staffing, and operational commissioning through to opening.</p>
+              <div class="project-detail__meta">
+                <span class="project-detail__tag">Hotel</span>
+                <span class="project-detail__tag">South Africa</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-detail fade-up">
+            <div class="project-detail__img" style="background:linear-gradient(135deg,#0a1a0a,#1a3d1a);" aria-hidden="true">🏠</div>
+            <div class="project-detail__header">
+              <span class="project-detail__sector">Real Estate</span>
+              <h3>Corporate Accommodation Portfolio</h3>
+            </div>
+            <div class="project-detail__body">
+              <p>Acquisition and management of a rental accommodation portfolio serving corporate clients and mining industry personnel requiring medium and long-stay accommodation options in the region.</p>
+              <div class="project-detail__meta">
+                <span class="project-detail__tag">Rental</span>
+                <span class="project-detail__tag">Zimbabwe</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="text-center mt-48" style="padding:40px; background:var(--steel); border:1px solid var(--border); border-radius:var(--radius-lg);">
+          <span class="eyebrow">Content Update Required</span>
+          <h3 style="color:var(--white);margin:12px 0;">Additional Projects To Be Added</h3>
+          <p style="max-width:540px;margin:0 auto 24px;">The above entries are placeholder examples based on the confirmed business verticals. Kudenga Group to supply full project histories, descriptions, and supporting images via the agreed communication channel.</p>
+          <a href="contact.html" class="btn btn--outline">Contact Us</a>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <h2>Ready to Add Your Project to This List?</h2>
+        <p>Talk to us about your logistics, mining, or real estate requirements across Southern Africa.</p>
+        <a href="contact.html" class="btn btn--primary">Start a Conversation</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="nav__logo"><span class="nav__logo-name">KUDENGA <span>GROUP</span></span><span class="nav__logo-tag">Southern Africa</span></div>
+          <p>Integrated rail and road logistics, mining consulting, and real estate across South Africa and Zimbabwe.</p>
+        </div>
+        <div><div class="footer__col-title">Services</div><ul class="footer__links"><li><a href="rail-road.html">Rail &amp; Road Logistics</a></li><li><a href="mining.html">Mining &amp; Consulting</a></li><li><a href="real-estate.html">Hotels &amp; Accommodation</a></li><li><a href="projects.html">Our Work</a></li></ul></div>
+        <div><div class="footer__col-title">Company</div><ul class="footer__links"><li><a href="about.html">About Us</a></li><li><a href="locations.html">Locations</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div><div class="footer__col-title">Contact</div><div class="footer__contact-item"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@kudenga.co.za</span></div></div>
+      </div>
+      <hr class="divider" />
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 <span>Kudenga Group</span>. All rights reserved. | Website by <span>Soluxionz</span></p>
+        <div class="footer__social"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="WhatsApp">W</a></div>
+      </div>
+    </div>
+  </footer>
+  <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}</style>
+  <script src="js/main.js"></script>
+</body>
+</html>
