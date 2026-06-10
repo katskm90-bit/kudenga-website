@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kudenga Group — Rail and Road Logistics, Mining Consulting, and Real Estate across Southern Africa. Headquartered in South Africa with operations in Zimbabwe." />
+  <title>Kudenga Group | Rail, Road, Mining & Real Estate — Southern Africa</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%231a1a2e'/><text y='24' x='4' font-size='22' fill='%23e8a020' font-family='Arial' font-weight='bold'>K</text></svg>" />
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════════════════════ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Kudenga Group home">
+        <span class="nav__logo-name">KUDENGA <span>GROUP</span></span>
+        <span class="nav__logo-tag">Southern Africa</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="rail-road.html">Rail &amp; Road</a></li>
+        <li><a href="mining.html">Mining</a></li>
+        <li><a href="real-estate.html">Properties</a></li>
+        <li><a href="projects.html">Our Work</a></li>
+        <li><a href="locations.html">Locations</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn--primary nav__cta">Get In Touch</a>
+      <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="nav__mobile" role="dialog" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="rail-road.html">Rail &amp; Road Logistics</a>
+    <a href="mining.html">Mining &amp; Consulting</a>
+    <a href="real-estate.html">Properties</a>
+    <a href="projects.html">Our Work</a>
+    <a href="locations.html">Locations</a>
+    <a href="contact.html" class="btn btn--primary">Get In Touch</a>
+  </div>
+
+  <main id="main">
+
+    <!-- ══════════════════════════════════════════════════════
+         HERO — Rail forward
+    ══════════════════════════════════════════════════════ -->
+    <section class="hero" aria-label="Hero">
+      <div class="hero__slides" aria-hidden="true">
+        <!-- Slide 1: Rail (primary) -->
+        <div class="hero__slide active" style="background-image: linear-gradient(160deg,rgba(13,13,13,0.25) 0%,rgba(13,13,13,0.65) 100%), url('images/hero-rail.jpg'); background-size:cover; background-position:center;"></div>
+        <!-- Slide 2: Road Logistics -->
+        <div class="hero__slide" style="background-image: linear-gradient(160deg,rgba(13,13,13,0.25) 0%,rgba(13,13,13,0.65) 100%), url('images/hero-road.jpg'); background-size:cover; background-position:center;"></div>
+        <!-- Slide 3: Mining -->
+        <div class="hero__slide" style="background-image: linear-gradient(160deg,rgba(13,13,13,0.25) 0%,rgba(13,13,13,0.65) 100%), url('images/hero-mining.jpg'); background-size:cover; background-position:center;"></div>
+        <!-- Slide 4: Real Estate -->
+        <div class="hero__slide" style="background-image: linear-gradient(160deg,rgba(13,13,13,0.25) 0%,rgba(13,13,13,0.65) 100%), url('images/hero-property.jpg'); background-size:cover; background-position:center;"></div>
+      </div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <div class="hero__content">
+        <div class="hero__label">
+          <div class="hero__label-line"></div>
+          <span>Rail &amp; Road · Mining · Real Estate</span>
+        </div>
+        <h1>Moving Southern Africa<br /><em>Forward.</em></h1>
+        <p class="hero__sub">
+          Kudenga Group delivers integrated rail and road logistics, mining consulting, and real estate solutions across South Africa and Zimbabwe.
+        </p>
+        <div class="hero__actions">
+          <a href="rail-road.html" class="btn btn--primary">
+            Our Rail Services
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="projects.html" class="btn btn--outline">View Our Work</a>
+        </div>
+      </div>
+
+      <div class="hero__indicators" aria-label="Slide indicators">
+        <div class="hero__dot active" role="button" aria-label="Slide 1" tabindex="0"></div>
+        <div class="hero__dot" role="button" aria-label="Slide 2" tabindex="0"></div>
+        <div class="hero__dot" role="button" aria-label="Slide 3" tabindex="0"></div>
+        <div class="hero__dot" role="button" aria-label="Slide 4" tabindex="0"></div>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <div class="hero__scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         STATS BAR
+    ══════════════════════════════════════════════════════ -->
+    <section class="stats-bar" aria-label="Key statistics">
+      <div class="stats-bar__inner">
+        <div class="stats-bar__item">
+          <span class="stats-bar__num" data-count="20" data-suffix="+">20+</span>
+          <span class="stats-bar__label">Years in Operation</span>
+        </div>
+        <div class="stats-bar__item">
+          <span class="stats-bar__num" data-count="2" data-suffix="">2</span>
+          <span class="stats-bar__label">Countries</span>
+        </div>
+        <div class="stats-bar__item">
+          <span class="stats-bar__num" data-count="3" data-suffix="">3</span>
+          <span class="stats-bar__label">Business Verticals</span>
+        </div>
+        <div class="stats-bar__item">
+          <span class="stats-bar__num" data-count="100" data-suffix="+">100+</span>
+          <span class="stats-bar__label">Projects Delivered</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         BUSINESS VERTICALS
+    ══════════════════════════════════════════════════════ -->
+    <section class="verticals" aria-labelledby="verticals-heading">
+      <h2 id="verticals-heading" class="sr-only">Our Business Verticals</h2>
+      <div class="verticals__track">
+
+        <!-- Rail & Road (Primary) -->
+        <div class="vertical-card" role="article">
+          <div class="vertical-card__bg" style="background-image: url('images/card-rail.jpg'); background-size:cover; background-position:center;"></div>
+          <div class="vertical-card__overlay"></div>
+          <div class="vertical-card__icon" aria-hidden="true">🚂</div>
+          <div class="vertical-card__content">
+            <span class="vertical-card__tag">Primary Business</span>
+            <h3>Rail &amp; Road Logistics</h3>
+            <p>End-to-end freight and transport solutions connecting South Africa and Zimbabwe. Reliable, scheduled, and built for industry.</p>
+            <a href="rail-road.html" class="vertical-card__link">
+              Explore Services
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Mining -->
+        <div class="vertical-card" role="article">
+          <div class="vertical-card__bg" style="background-image: url('images/card-mining.jpg'); background-size:cover; background-position:center;"></div>
+          <div class="vertical-card__overlay"></div>
+          <div class="vertical-card__icon" aria-hidden="true">⛏️</div>
+          <div class="vertical-card__content">
+            <span class="vertical-card__tag">Mining Division</span>
+            <h3>Mining &amp; Consulting</h3>
+            <p>Operational mining services and specialist consulting for the extraction and resources sector across Southern Africa.</p>
+            <a href="mining.html" class="vertical-card__link">
+              Explore Services
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Real Estate -->
+        <div class="vertical-card" role="article">
+          <div class="vertical-card__bg" style="background-image: url('images/card-property.jpg'); background-size:cover; background-position:center;"></div>
+          <div class="vertical-card__overlay"></div>
+          <div class="vertical-card__icon" aria-hidden="true">🏨</div>
+          <div class="vertical-card__content">
+            <span class="vertical-card__tag">Properties Division</span>
+            <h3>Hotels &amp; Accommodation</h3>
+            <p>A portfolio of hotel and rental accommodation properties across South Africa and Zimbabwe. Tailored for business and leisure.</p>
+            <a href="real-estate.html" class="vertical-card__link">
+              View Properties
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         ABOUT STRIP
+    ══════════════════════════════════════════════════════ -->
+    <section class="about-strip section" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="grid-2">
+          <div class="about-strip__text fade-up">
+            <span class="eyebrow">About Kudenga Group</span>
+            <h2 id="about-heading">Built on the Ground.<br />Proven Across Borders.</h2>
+            <span class="accent-line"></span>
+            <p class="lead">
+              Kudenga Group is a Southern African holding company with deep operational roots in rail and road logistics, mining, and real estate. With a footprint spanning South Africa and Zimbabwe, we bring practical expertise and local knowledge to every project we undertake.
+            </p>
+            <ul class="checklist mt-32">
+              <li class="checklist__item">
+                <div class="checklist__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <span class="checklist__text">Over two decades of operational experience across Southern Africa</span>
+              </li>
+              <li class="checklist__item">
+                <div class="checklist__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <span class="checklist__text">Multi-sector capacity across logistics, mining, and hospitality</span>
+              </li>
+              <li class="checklist__item">
+                <div class="checklist__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <span class="checklist__text">Active operations and partner networks in South Africa and Zimbabwe</span>
+              </li>
+              <li class="checklist__item">
+                <div class="checklist__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <span class="checklist__text">Committed to long-term, accountable partnerships with clients</span>
+              </li>
+            </ul>
+            <a href="about.html" class="btn btn--outline">Our Full Story</a>
+          </div>
+          <div class="about-strip__visual fade-up">
+            <div class="about-strip__placeholder">
+              <p style="font-size:0.7rem;letter-spacing:0.15em;color:var(--grey-dark);">IMAGE PLACEHOLDER<br/>Replace with operational photography</p>
+            </div>
+            <div class="about-strip__badge">
+              <div class="about-strip__badge-num">20+</div>
+              <div class="about-strip__badge-text">Years Operating</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         PROJECTS PREVIEW
+    ══════════════════════════════════════════════════════ -->
+    <section class="projects-preview section" aria-labelledby="projects-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Track Record</span>
+          <h2 id="projects-heading">Work We've Delivered</h2>
+          <span class="accent-line"></span>
+          <p class="lead">
+            A selection of projects across our business verticals. Each engagement represents a commitment to operational delivery and measurable outcomes.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="project-card fade-up" role="article">
+            <div class="project-card__img">
+              <div class="project-card__img-placeholder" aria-hidden="true">🚂</div>
+              <span class="project-card__sector">Rail &amp; Road</span>
+            </div>
+            <div class="project-card__body">
+              <h4>Cross-Border Freight Corridor</h4>
+              <p>Managed rail and road freight operations across the South Africa–Zimbabwe corridor, coordinating multi-modal logistics for bulk commodity clients.</p>
+              <div class="project-card__meta">
+                <span class="project-card__tag">Rail</span>
+                <span class="project-card__tag">Cross-Border</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card fade-up" role="article">
+            <div class="project-card__img" style="background: linear-gradient(135deg, #1a1000 0%, #3d2800 100%);">
+              <div class="project-card__img-placeholder" aria-hidden="true">⛏️</div>
+              <span class="project-card__sector">Mining</span>
+            </div>
+            <div class="project-card__body">
+              <h4>Mining Operations Consultancy</h4>
+              <p>Provided operational consulting and on-site support for extraction operations. Scope covered safety protocols, logistics integration, and resource planning.</p>
+              <div class="project-card__meta">
+                <span class="project-card__tag">Consulting</span>
+                <span class="project-card__tag">Zimbabwe</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card fade-up" role="article">
+            <div class="project-card__img" style="background: linear-gradient(135deg, #0a1a0a 0%, #1a3d1a 100%);">
+              <div class="project-card__img-placeholder" aria-hidden="true">🏨</div>
+              <span class="project-card__sector">Real Estate</span>
+            </div>
+            <div class="project-card__body">
+              <h4>Hospitality Portfolio Development</h4>
+              <p>Developed and brought into operation hotel and rental accommodation properties serving both business travellers and the tourism sector.</p>
+              <div class="project-card__meta">
+                <span class="project-card__tag">Hotels</span>
+                <span class="project-card__tag">South Africa</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-48">
+          <a href="projects.html" class="btn btn--outline">View All Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         LOCATIONS STRIP
+    ══════════════════════════════════════════════════════ -->
+    <section class="locations-strip section" aria-labelledby="locations-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Where We Operate</span>
+          <h2 id="locations-heading">South Africa &amp; Zimbabwe</h2>
+          <span class="accent-line"></span>
+          <p class="lead">Kudenga Group operates across multiple locations in both countries. Our teams are embedded in the communities and corridors we serve.</p>
+        </div>
+
+        <div class="locations-grid">
+          <div class="location-card fade-up">
+            <div class="location-card__flag" aria-hidden="true">🇿🇦</div>
+            <div>
+              <div class="location-card__country">South Africa</div>
+              <h4>Head Office — South Africa</h4>
+              <p>Address and contact details to be confirmed.<br />Primary operational hub for the Group.</p>
+            </div>
+          </div>
+          <div class="location-card fade-up">
+            <div class="location-card__flag" aria-hidden="true">🇿🇦</div>
+            <div>
+              <div class="location-card__country">South Africa</div>
+              <h4>Regional Office — [City]</h4>
+              <p>Address and contact details to be confirmed.<br />Rail and road logistics operations.</p>
+            </div>
+          </div>
+          <div class="location-card fade-up">
+            <div class="location-card__flag" aria-hidden="true">🇿🇼</div>
+            <div>
+              <div class="location-card__country">Zimbabwe</div>
+              <h4>Zimbabwe Office — [City]</h4>
+              <p>Address and contact details to be confirmed.<br />Mining consulting and logistics.</p>
+            </div>
+          </div>
+          <div class="location-card fade-up">
+            <div class="location-card__flag" aria-hidden="true">🇿🇼</div>
+            <div>
+              <div class="location-card__country">Zimbabwe</div>
+              <h4>Zimbabwe Operations — [City]</h4>
+              <p>Address and contact details to be confirmed.<br />Real estate and accommodation portfolio.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-48">
+          <a href="locations.html" class="btn btn--ghost">View All Locations</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         CTA BAND
+    ══════════════════════════════════════════════════════ -->
+    <section class="cta-band" aria-label="Call to action">
+      <div class="container">
+        <h2>Ready to Work With Us?</h2>
+        <p>Whether you need freight solutions, mining expertise, or accommodation across Southern Africa — we're ready to engage.</p>
+        <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn--primary">Contact Kudenga Group</a>
+          <a href="projects.html" class="btn btn--ghost" style="border-color:rgba(0,0,0,0.25); color:var(--black);">See Our Track Record</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="nav__logo">
+            <span class="nav__logo-name">KUDENGA <span>GROUP</span></span>
+            <span class="nav__logo-tag">Southern Africa</span>
+          </div>
+          <p>Integrated rail and road logistics, mining consulting, and real estate across South Africa and Zimbabwe.</p>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Services</div>
+          <ul class="footer__links" role="list">
+            <li><a href="rail-road.html">Rail &amp; Road Logistics</a></li>
+            <li><a href="mining.html">Mining &amp; Consulting</a></li>
+            <li><a href="real-estate.html">Hotels &amp; Accommodation</a></li>
+            <li><a href="projects.html">Our Work</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Company</div>
+          <ul class="footer__links" role="list">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="locations.html">Locations</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="real-estate.html">Properties Website ↗</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Contact</div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span>South Africa &amp; Zimbabwe<br />(locations to be confirmed)</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92l.02 2z"/></svg>
+            <span>Contact details to be confirmed</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>info@kudenga.co.za</span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <div class="footer__bottom">
+        <p class="footer__copy">
+          &copy; 2026 <span>Kudenga Group</span>. All rights reserved. | Website by <span>Soluxionz</span>
+        </p>
+        <div class="footer__social" aria-label="Social media">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="WhatsApp">W</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Screen reader only utility -->
+  <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}</style>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
